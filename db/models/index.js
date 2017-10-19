@@ -44,11 +44,13 @@ const Campuses = db.define('campuses',
 })
 
 //associations
-Students.belongsTo(Campuses);
-// Places albumId column on song rows
-// Allows song.getAlbum/setAlbum/removeAlbum to exist and function
 Campuses.hasMany(Students);
+//, {onDelete: 'cascade'}..not working
 // Also places albumId column on song rows, which is redundant to Song.belongsTo(Album)
 // However, it also allows for the use of album.getSongs/album.setSong(s)/addSong(s)/etc
+
+Students.belongsTo(Campuses);
+// Places studectId column on song rows
+// Allows song.getAlbum/setAlbum/removeAlbum to exist and function
 
 module.exports = { db, Students, Campuses}
