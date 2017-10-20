@@ -10,7 +10,7 @@ import thunkMiddleware from 'redux-thunk'; // https://github.com/gaearon/redux-t
 export const GET_CAMPUSES = 'GET_CAMPUSES';
 export const GET_STUDENTS = 'GET_STUDENTS';
 export const GET_SINGLE_CAMPUS = 'GET_SINGLE_CAMPUS'
-// export const ADD_STUDENT = 'ADD_STUDENT';
+export const ADD_STUDENT = 'ADD_STUDENT';
 
 
 //ACTION CREATORS
@@ -34,12 +34,12 @@ export function getSingleCampus (campus) {
     }
 }
 
-// export function addStudent (student) {
-//     return {
-//         type: ADD_STUDENT,
-//         student
-//     }
-// }
+function addStudent (student) {
+    return {
+        type: ADD_STUDENT,
+        newStudent
+    }
+}
 
 
 //THUNK CREATORS - have axios in realroot instead
@@ -79,16 +79,16 @@ export function fetchSingleCampus (campusId) {
   }
 }
 
-// export function postStudent (student) {
-//     return function thunk (dispatch) {
-//         return axios.post('/api/students', student)
-//         .then(res => res.data)
-//         .then(newStudent => {
-//             const action = addStudent(newStudent);
-//             dispatch(action);
-//         })
-//     }
-// }
+export function addStudent (student) {
+    return function thunk (dispatch) {
+        return axios.post('/api/students', student)
+        .then(res => res.data)
+        .then(newStudent => {
+            const action = addStudent(newStudent);
+            dispatch(action);
+        })
+    }
+}
 
 
 //REDUCER -- in reducer file

@@ -36,6 +36,7 @@ export default class StudentList extends Component {
                                 <th><abbr title="#">#</abbr></th>
                                 <th><abbr title="Name">Name</abbr></th>
                                 <th><abbr title="Campus">Campus</abbr></th>
+                                <th><abbr title="Remove">Remove</abbr></th>
                             </tr>
                         </thead>
 
@@ -46,6 +47,7 @@ export default class StudentList extends Component {
                                                 <td>{student.id}</td>
                                                 <td>{student.name}</td>
                                                 <td>{student.campusId}</td>
+                                                <td><input type="button" className="btn btn-primary" value="X"/></td>
                                         </tr>
                                     ))
                                 }

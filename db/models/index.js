@@ -7,15 +7,6 @@
 
 // This is also probably a good place for you to set up your associations
 
-//e: part 1: models
-// - Students
-//   * have profile info (e.g. name and email)
-//   * must be assigned to a campus
-
-// - Campuses
-//   * have info such as a name and image
-//   * can have many students assigned (may have none)
-
 const Sequelize = require('sequelize');
 const db = require('../index.js')
 
